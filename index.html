@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sahil Garer - Front-end developer social links">
     <title>Social link profile</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -12,22 +13,28 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: "Roboto", sans-serif;
             text-align: center;
-            margin: 7em auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             background-color: black;
-            padding: 0.5rem 0.5rem;
-            max-width: 343px;
+
         }
 
         main {
-            border: 2px solid black;
             border-radius: 0.6rem;
             background: #202020;
             color: whitesmoke;
+            max-width: 343px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(155, 138, 138, 0.5);
+
         }
 
         .address {
@@ -36,16 +43,17 @@
         }
 
         p {
-            line-height: 4;
+            line-height: 1.5;
         }
 
         img {
             margin: 0.5rem;
-            border-radius: 50rem;
+            border-radius: 50%;
         }
+
         li {
             list-style-type: none;
-            margin: 1em 1em 1em 1em;
+            margin: 1em;
             background-color: rgb(45, 44, 44);
             border-radius: 1rem;
 
@@ -57,45 +65,59 @@
             color: whitesmoke;
             font-weight: bold;
             display: block;
+            transition: 0.2s ease;
             padding: 0.5rem;
         }
+
         li a:hover,
-        li a:focus{
-            background-color:black;
+        li a:focus {
+            background-color: black;
             color: white;
-            font-size: large;
+            transform: scale(1.05);
             border-radius: 1rem;
-            
+            outline: none;
         }
-        .emoji{
-            display:none;
+
+        a:focus-visible {
+            outline: 2px solid greenyellow;
+            outline-offset: 3px;
         }
-        li a:hover .emoji{
+
+        .emoji {
+            display: none;
+        }
+
+        li a:hover .emoji,
+        li a:active .emoji {
             display: inline;
         }
-        
+
+        li a:active {
+            background-color: #111;
+            transform: scale(0.97);
+        }
+
 
         .bio {
             text-align: center;
             line-height: normal;
             padding: 1rem;
         }
-    
-
     </style>
 
 </head>
 
 <body>
     <main>
-        <img src="sahil.jpeg" alt="avatar-Sahil">
+        <img src="sahil.jpeg" alt="avatar-Sahil" width="100">
         <h2>SAHIL GARER</h2>
-        <p class="address">Rajasthan ,india</p>
-        <p class="bio">"Front-end developer and avid Haryanvi Music Listner."</p>
+        <p class="address">Rajasthan, India</p>
+        <p class="bio">"Front-end developer and avid Haryanvi Music Listener."</p>
         <ul>
             <li><a href="https://github.com/Vicioussahil">GitHub <span class="emoji">👉</span></a></li>
-            <li><a href="https://www.youtube.com/@jatrajasthanalla5377">Youtube <span class="emoji">👉</span></a></li>
-            <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkdIn <span class="emoji">👉</span></a></li>
+            <li><a href="https://www.youtube.com/@jatrajasthanalla5377">YouTube <span class="emoji">👉</span></a></li>
+            <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkedIn <span class="emoji">👉</span></a>
+            </li>
             <li><a href="https://t.me/royaljaatsahil">Telegram <span class="emoji">👉</span></a></li>
             <li><a href="https://www.facebook.com/sahil.garer.2025/">Facebook <span class="emoji">👉</span></a></li>
         </ul>
