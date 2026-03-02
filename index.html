@@ -43,14 +43,11 @@
             margin: 0.5rem;
             border-radius: 50rem;
         }
-
-        ul {}
-
         li {
             list-style-type: none;
             margin: 1em 1em 1em 1em;
             background-color: rgb(45, 44, 44);
-            border-radius: 0.3rem;
+            border-radius: 1rem;
 
 
         }
@@ -62,6 +59,29 @@
             display: block;
             padding: 0.5rem;
         }
+        li a:hover,
+        li a:focus{
+            background-color:black;
+            color: white;
+            font-size: large;
+            border-radius: 1rem;
+            
+        }
+        .emoji{
+            display:none;
+        }
+        li a:hover .emoji{
+            display: inline;
+        }
+        
+
+        .bio {
+            text-align: center;
+            line-height: normal;
+            padding: 1rem;
+        }
+    
+
     </style>
 
 </head>
@@ -71,16 +91,15 @@
         <img src="sahil.jpeg" alt="avatar-Sahil">
         <h2>SAHIL GARER</h2>
         <p class="address">Rajasthan ,india</p>
-        <p>"Front-end developer and avid haryanvi music listener."</p>
+        <p class="bio">"Front-end developer and avid Haryanvi Music Listner."</p>
         <ul>
-            <li><a href="https://github.com/Vicioussahil">GitHub</a></li>
-            <li><a href="https://www.youtube.com/@jatrajasthanalla5377">Youtube</a></li>
-            <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkdIn</a></li>
-            <li><a href="https://t.me/royaljaatsahil">Telegram</a></li>
-            <li><a href="https://www.facebook.com/sahil.garer.2025/">Facebook</a></li>
+            <li><a href="https://github.com/Vicioussahil">GitHub <span class="emoji">👉</span></a></li>
+            <li><a href="https://www.youtube.com/@jatrajasthanalla5377">Youtube <span class="emoji">👉</span></a></li>
+            <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkdIn <span class="emoji">👉</span></a></li>
+            <li><a href="https://t.me/royaljaatsahil">Telegram <span class="emoji">👉</span></a></li>
+            <li><a href="https://www.facebook.com/sahil.garer.2025/">Facebook <span class="emoji">👉</span></a></li>
         </ul>
     </main>
 </body>
-
 
 </html>
