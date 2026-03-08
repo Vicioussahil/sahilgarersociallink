@@ -27,6 +27,22 @@
 
         }
 
+        nav {
+            position: absolute;
+            display: flex;
+            justify-content: right;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: black;
+            max-width: 100vw;
+            width: 100%;
+            color: whitesmoke;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.9);
+            font-size: 1rem;
+            box-shadow: 0 0 10px 0 rgba(155, 138, 138, 0.9);
+        }
+
         main {
             border-radius: 0.6rem;
             background: #202020;
@@ -44,6 +60,10 @@
 
         p {
             line-height: 1.5;
+        }
+
+        #time {
+            color: #fff;
         }
 
         img {
@@ -103,25 +123,140 @@
             line-height: normal;
             padding: 1rem;
         }
+
+        #start {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            
+        }
     </style>
 
 </head>
 
 <body>
-    <main>
-        <img src="sahil.jpeg" alt="avatar-Sahil" width="100">
-        <h2>SAHIL GARER</h2>
-        <p class="address">Rajasthan, India</p>
-        <p class="bio">"Front-end developer and avid Haryanvi Music Listener."</p>
-        <ul>
-            <li><a href="https://github.com/Vicioussahil">GitHub <span class="emoji">👉</span></a></li>
-            <li><a href="https://www.youtube.com/@jatrajasthanalla5377">YouTube <span class="emoji">👉</span></a></li>
-            <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkedIn <span class="emoji">👉</span></a>
-            </li>
-            <li><a href="https://t.me/royaljaatsahil">Telegram <span class="emoji">👉</span></a></li>
-            <li><a href="https://www.facebook.com/sahil.garer.2025/">Facebook <span class="emoji">👉</span></a></li>
-        </ul>
-    </main>
+    <div id="start">Click to Enter</div>
+
+    <audio id="loading" src="rom-rom-bhaiyo.mp3"></audio>
+    <div class="" id="content" style="display: none;">
+        <nav>
+            <p><span id="time"></span></p>
+        </nav>
+        <main>
+            <img src="sahil.jpeg" alt="avatar-Sahil" width="100">
+            <h2>SAHIL GARER</h2>
+            <p class="address">Rajasthan, India</p>
+            <p class="bio">"Front-end developer and avid Haryanvi Music Listener."</p>
+
+            <ul>
+                <li><a href="https://github.com/Vicioussahil" onclick="sound(event,this)" class="Github">GitHub <span
+                            class="emoji">👉</span></a></li>
+                <audio src="cid-acp-behn-choo.mp3" id="clickable"></audio>
+                <audio id="pageSound" src="kya-cheda-bhosdi.mp3"></audio>
+                <!-- <audio src="faaah.mp3" id="loading"></audio> -->
+                <li><a href="https://www.youtube.com/@jatrajasthanalla5377">YouTube <span class="emoji">👉</span></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/sahil-garer-314ab334a/">LinkedIn <span
+                            class="emoji">👉</span></a>
+                </li>
+                <li><a href="https://t.me/royaljaatsahil">Telegram <span class="emoji">👉</span></a></li>
+                <li><a href="https://www.facebook.com/sahil.garer.2025/">Facebook <span class="emoji">👉</span></a></li>
+            </ul>
+        </main>
+    </div>
+    <script>
+        function displayTime() {
+            let time = new Date();
+            time = time.toLocaleTimeString();
+            console.log(time);
+            document.getElementById('time').innerHTML = time;
+        }
+        displayTime();
+        setInterval(displayTime, 1000);
+    </script>
+    <script>
+        // function sound(event, element) {
+        //     event.preventDefault(); // stop link from opening immediately
+
+        //     const click = document.getElementById("clickable");
+        //     const url = element.href;
+
+        //     console.log("play sound");
+
+        //     click.currentTime = 0;
+        //     click.play();
+
+        //     setTimeout(function () {
+        //         window.location.href = url;
+        //     }, 2000); // delay before opening link
+        // }
+        document.getElementById("start").addEventListener("click", function () {
+
+            const audio = document.getElementById("loading");
+            const content = document.getElementById("content");
+
+            audio.play();
+
+            this.style.display = "none";
+            audio.onended = function () {
+                content.style.display = "block";
+            };
+
+
+        });
+
+
+
+
+
+
+
+       const linkSound = document.getElementById("clickable");
+const pageSound = document.getElementById("pageSound");
+
+let firstClick = true;
+
+document.addEventListener("click", function(e){
+
+    if(firstClick){
+        firstClick = false;   // ignore first click
+        return;
+    }
+
+    const link = e.target.closest("a");
+
+    if(link){
+        e.preventDefault();
+
+        const url = link.href;
+
+        linkSound.pause();
+        linkSound.currentTime = 0;
+        linkSound.play();
+
+        linkSound.onended = function(){
+            window.location.href = url;
+        };
+
+    } else {
+
+        pageSound.pause();
+        pageSound.currentTime = 0;
+        pageSound.play();
+
+    }
+
+});
+    </script>
 </body>
 
 </html>
